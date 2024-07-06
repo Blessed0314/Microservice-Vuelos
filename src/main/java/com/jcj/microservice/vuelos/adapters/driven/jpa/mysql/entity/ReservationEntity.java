@@ -13,6 +13,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ReservationEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne

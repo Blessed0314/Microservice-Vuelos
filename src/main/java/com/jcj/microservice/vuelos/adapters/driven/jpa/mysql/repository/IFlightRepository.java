@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface IFlightRepository extends JpaRepository<FlightEntity, Long> {
-    @Query("SELECT f FROM FlightEntity f WHERE TRIM(LOWER(f.name)) = TRIM(LOWER(:name))")
-    Optional<FlightEntity> findByNameIgnoreCaseAndTrim(@Param("name") String name);
+    //@Query("SELECT f FROM FlightEntity f WHERE TRIM(LOWER(f.name)) = TRIM(LOWER(:name))")
+    //Optional<FlightEntity> findByNameIgnoreCaseAndTrim(@Param("name") String name);
 }

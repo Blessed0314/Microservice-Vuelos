@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:40463/reserva_vuelo
-    username: ${username}
-    password: ${password}
+    url: jdbc:mysql://localhost:3306/reserva_vuelo
+    username: root
+    password: admin
   jpa:
     hibernate:
       ddl-auto: update

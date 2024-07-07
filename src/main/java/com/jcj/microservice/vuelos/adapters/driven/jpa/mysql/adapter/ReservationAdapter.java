@@ -18,14 +18,14 @@ public class ReservationAdapter implements IReservationPersistencePort {
 
     private final IFlightRepository flightRepository;
     @Override
-    public Reservation createReservation(Reservation reservation) {
+    public Long createReservation(Reservation reservation) {
         FlightEntity flightEntity = flightRepository.findById(reservation.getIdFlight()).get();
 
         ReservationEntity reservationEntity = reservationRepository.save(reservationEntityMapper.toEntity(reservation));
 
         reservationEntity.setFlight(flightEntity);
 
-        return reservationEntityMapper.toModel(reservationRepository.save(reservationEntity));
+        return reservationEntityMapper.toModel(reservationRepository.save(reservationEntity)).getId();
     }
     @Override
     public Reservation getReservation(Long reservationId) {

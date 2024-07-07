@@ -26,4 +26,6 @@ public class AirlineRequestController {
         airlineServicePort.addAirline(airlineRequestMapper.addRequestToAirline(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+
 }

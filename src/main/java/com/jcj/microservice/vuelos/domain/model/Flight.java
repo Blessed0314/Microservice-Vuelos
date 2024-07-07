@@ -2,7 +2,9 @@ package com.jcj.microservice.vuelos.domain.model;
 
 public class Flight {
     private final Long id;
-    private final Airline airline;
+    private final Long idAirline;
+
+
     private final String origin;
     private final String destination;
     private final int seats;
@@ -10,9 +12,13 @@ public class Flight {
     private final int reservations;
     private final boolean isFull;
 
-    public Flight(Long id, Airline airline, String origin, String destination, int seats, int price, int reservations, boolean isFull) {
+    public Long getIdAirline() {
+        return idAirline;
+    }
+
+    public Flight(Long id, Long idAirline, String origin, String destination, int seats, int price, int reservations, boolean isFull) {
         this.id = id;
-        this.airline = airline;
+        this.idAirline = idAirline;
         this.origin = origin;
         this.destination = destination;
         this.seats = seats;
@@ -21,13 +27,14 @@ public class Flight {
         this.isFull = isFull;
     }
 
+
+
+
     public Long getId() {
         return id;
     }
 
-    public Airline getAirline() {
-        return airline;
-    }
+
 
     public String getOrigin() {
         return origin;

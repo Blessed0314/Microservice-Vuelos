@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MapperConfig;
 import org.mapstruct.Mapping;
 
-@MapperConfig(componentModel = "spring")
+@Mapper(componentModel = "spring")
 public interface IAirlineRequestMapper {
 
     @Mapping(target = "id", ignore = true)

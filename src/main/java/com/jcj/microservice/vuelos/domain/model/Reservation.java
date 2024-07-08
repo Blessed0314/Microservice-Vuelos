@@ -6,7 +6,12 @@ public class Reservation {
 
     private final int people;
     private final int netValue;
-    private final boolean isActive;
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    private  boolean isActive;
 
     public Long getIdFlight() {
         return idFlight;

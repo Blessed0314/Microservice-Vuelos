@@ -6,10 +6,7 @@ import com.jcj.microservice.vuelos.adapters.driving.http.mapper.IReservationRequ
 import com.jcj.microservice.vuelos.domain.api.IReservationServicePort;
 import com.jcj.microservice.vuelos.domain.model.Reservation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/reservation")
@@ -23,6 +20,12 @@ public class ReservationRequestController {
     @PostMapping("/")
     public Long addReservation(@RequestBody AddReservationRequest request){
         return  reservationServicePort.createReservation(reservationRequestMapper.addRequestToReservation(request));
+    }
+
+
+    @DeleteMapping("/{id}")
+    public void deleteReservation(@PathVariable Long id){
+        reservationServicePort.deleteReservation(id);
     }
 
 }

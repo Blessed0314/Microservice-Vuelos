@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface IAirlineRepository extends JpaRepository<AirlineEntity, Long> {
     @Query("SELECT a FROM AirlineEntity a WHERE TRIM(LOWER(a.name)) = TRIM(LOWER(:name))")
     Optional<AirlineEntity> findByNameIgnoreCaseAndTrim(@Param("name") String name);
+
+    Optional<AirlineEntity> findById(Long id);
 }

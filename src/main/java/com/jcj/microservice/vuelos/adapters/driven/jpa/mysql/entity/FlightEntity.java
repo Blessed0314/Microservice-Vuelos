@@ -18,16 +18,16 @@ public class FlightEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        @ManyToOne
-        @JoinColumn(name = "airline_id", referencedColumnName = "id")
-        private AirlineEntity airline;
-
         private String origin;
         private String destination;
         private int seats;
         private int price;
         private int reservations = 0;
         private boolean isFull;
+
+        @ManyToOne
+        @JoinColumn(name = "airline_id")
+        private AirlineEntity airline;
 
         @PrePersist
         @PreUpdate

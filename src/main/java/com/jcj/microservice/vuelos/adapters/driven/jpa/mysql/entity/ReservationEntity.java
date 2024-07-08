@@ -23,7 +23,7 @@ public class ReservationEntity {
 
     private int people;
     private int netValue;
-    private boolean isActive;
+    private boolean isActive = true;
 
     @PrePersist
     @PreUpdate

@@ -1,0 +1,16 @@
+# Utilizamos la imagen base de Eclipse Temurin JDK 17 ya que es la que mejor funciona
+FROM eclipse-temurin:17.0.10_7-jdk
+
+# Definimos un volumen para /tmp
+VOLUME /tmp
+
+# Copiamos el archivo JAR desde build/libs/ en tu sistema local al contenedor, renombrándolo a app.jar
+
+#Gradle
+COPY build/libs/*.jar app.jar
+
+# Especificamos el comando de entrada para ejecutar la aplicación al iniciar el contenedor
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+
+
+

@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/flight")
 @RequiredArgsConstructor
+@CrossOrigin
 public class FlightRequestController {
 
     private final IFlightServicePort flightServicePort;

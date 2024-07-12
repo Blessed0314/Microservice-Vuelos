@@ -22,7 +22,6 @@ public class AirlineAdapter implements IAirlinePersistencePort {
         AirlineEntity airlineEntity = airlineEntityMapper.toEntity(airline);
         airlineRepository.save(airlineEntity);
 
-
     }
 
     @Override

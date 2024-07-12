@@ -1,16 +1,17 @@
 package com.jcj.microservice.vuelos.adapters.driving.http.controller;
 
 import com.jcj.microservice.vuelos.adapters.driving.http.dto.request.AddAirlineRequest;
+import com.jcj.microservice.vuelos.adapters.driving.http.dto.response.AirlineResponse;
 import com.jcj.microservice.vuelos.adapters.driving.http.mapper.IAirlineRequestMapper;
+import com.jcj.microservice.vuelos.adapters.driving.http.mapper.IAirlineResponseMapper;
 import com.jcj.microservice.vuelos.domain.api.IAirlineServicePort;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/airline")
@@ -21,11 +22,17 @@ public class AirlineRequestController {
 
     private final IAirlineRequestMapper airlineRequestMapper;
 
+    private final IAirlineResponseMapper airlineResponseMapper;
+
     @PostMapping("/")
     public ResponseEntity<Void> addAirline(@Valid @RequestBody AddAirlineRequest request){
         airlineServicePort.addAirline(airlineRequestMapper.addRequestToAirline(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @GetMapping("/")
+    public ResponseEntity<List<AirlineResponse>> getAirline(){
+        return ResponseEntity.ok(airlineResponseMapper.toAirlineResponseList(airlineServicePort.getAirlines()));
+    }
 
 }

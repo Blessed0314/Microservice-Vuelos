@@ -32,6 +32,8 @@ public class AirlineAdapter implements IAirlinePersistencePort {
 
     @Override
     public List<Airline> getAirlines() {
-        return List.of();
+        List<AirlineEntity> airlineEntities = airlineRepository.findAll();
+
+        return airlineEntityMapper.toModelList(airlineEntities);
     }
 }

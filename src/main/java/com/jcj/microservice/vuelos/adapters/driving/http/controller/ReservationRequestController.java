@@ -28,4 +28,12 @@ public class ReservationRequestController {
         reservationServicePort.deleteReservation(id);
     }
 
+    @GetMapping("/nameFlight/{id}")
+    public Object bringNameFlight(@PathVariable Long id){
+        return reservationServicePort.bringFlight(id);
+    }
+
+
+
+
 }

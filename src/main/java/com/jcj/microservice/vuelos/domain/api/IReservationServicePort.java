@@ -6,4 +6,6 @@ public interface IReservationServicePort {
     Long createReservation(Reservation reservation);
     Reservation getReservation(Long reservationId);
     void deleteReservation(Long reservationId);
+
+    Object bringFlight(Long reservationId);
 }

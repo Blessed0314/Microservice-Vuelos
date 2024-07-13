@@ -26,4 +26,11 @@ public class ReservationUseCase implements IReservationServicePort {
     public void deleteReservation(Long reservationId) {
         reservationPersistencePort.deleteReservation(reservationId);
     }
+
+
+    @Override
+    public Object bringFlight(Long reservationId) {
+        return reservationPersistencePort.bringFlight(reservationId);
+    }
+
 }

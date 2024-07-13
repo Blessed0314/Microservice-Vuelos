@@ -17,6 +17,7 @@ public class ReservationAdapter implements IReservationPersistencePort {
     private final IReservationEntityMapper reservationEntityMapper;
 
     private final IFlightRepository flightRepository;
+
     @Override
     public Long createReservation(Reservation reservation) {
         reservation.setActive(true);
@@ -29,6 +30,7 @@ public class ReservationAdapter implements IReservationPersistencePort {
 
         return reservationEntityMapper.toModel(reservationRepository.save(reservationEntity)).getId();
     }
+
     @Override
     public Reservation getReservation(Long reservationId) {
         return null;
@@ -41,5 +43,11 @@ public class ReservationAdapter implements IReservationPersistencePort {
         reservationEntity.setActive(false);
 
         reservationRepository.save(reservationEntity);
+    }
+
+    @Override
+    public Object bringFlight(Long reservationId) {
+        ReservationEntity reservationEntity = reservationRepository.findById(reservationId).get();
+        return reservationEntity.getFlight();
     }
 }
